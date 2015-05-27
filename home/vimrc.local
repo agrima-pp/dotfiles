@@ -1,8 +1,17 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-syntax on
-colorscheme pete
+syntax enable
+set term=xterm
+set t_Co=256
+let &t_AB="\e[48;5;%dm"
+let &t_AF="\e[38;5;%dm"
+set background=light
+let g:solarized_termcolors=256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+let g:airline_theme='solarized'
 let mapleader = ","
 
 " custom binds I use
@@ -183,7 +192,9 @@ function! SetCursorPosition()
 endfunction
 
 
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+"let &colorcolumn=join(range(81,999),",")
+
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
